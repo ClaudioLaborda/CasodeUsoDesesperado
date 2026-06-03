@@ -14,7 +14,7 @@ public class Propiedades {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id; // Cambiado a minúscula por convención
+	private Long id; 
 	
 	@Column(name = "precio_mensual", nullable = false)
 	private Double precioMensual;
@@ -31,11 +31,11 @@ public class Propiedades {
 	@Column(name = "eliminada", nullable = false)
 	private boolean eliminada = false;
 
-	// Constructor vacío (Obligatorio para JPA)
+	// Constructor vacio
 	public Propiedades() {
 	}
 	
-	// Constructor con parámetros (Limpio de caracteres invisibles)
+	// Constructor
 	public Propiedades(Double precioMensual, String condiciones, String descripcion, LocalDate fechaPublicacion) {
 		this.precioMensual = precioMensual;
 		this.condiciones = condiciones;
@@ -44,7 +44,7 @@ public class Propiedades {
 		this.eliminada = false; 
 	}
 
-	// Getters y Setters corregidos
+	// Getters y Setters 
 	public Long getId() {
 		return id;
 	}
