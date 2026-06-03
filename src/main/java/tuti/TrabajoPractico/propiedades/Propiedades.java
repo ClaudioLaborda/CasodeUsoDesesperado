@@ -28,7 +28,7 @@ public class Propiedades {
 	@Column(name = "condiciones_alquiler", columnDefinition = "TEXT", nullable = false)
 	
 	
-	private String condicionesAlquiler;
+	private String condiciones;
 	
 	@Lob
 	@Column(columnDefinition = "TEXT", nullable = false)
@@ -39,39 +39,84 @@ public class Propiedades {
 	private LocalDate fechaPublicacion;
 	
 	
-	
+	@Column(name = "eliminada", nullable = false)
+	private boolean eliminada = false;
+
+
 	public Long getId() {
 		return Id;
 	}
+
+
 	public void setId(Long id) {
 		Id = id;
 	}
+
+
 	public Double getPrecioMensual() {
 		return precioMensual;
 	}
+
+
 	public void setPrecioMensual(Double precioMensual) {
 		this.precioMensual = precioMensual;
 	}
-	public String getCondicionesAlquiler() {
-		return condicionesAlquiler;
+
+
+	public String getCondiciones() {
+		return condiciones;
 	}
-	public void setCondicionesAlquiler(String condicionesAlquiler) {
-		this.condicionesAlquiler = condicionesAlquiler;
+
+
+	public void setCondiciones(String condiciones) {
+		this.condiciones = condiciones;
 	}
+
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+
 	public LocalDate getFechaPublicacion() {
 		return fechaPublicacion;
 	}
+
+
 	public void setFechaPublicacion(LocalDate fechaPublicacion) {
 		this.fechaPublicacion = fechaPublicacion;
 	}
+
+
+	public boolean isEliminada() {
+		return eliminada;
+	}
+
+
+	public void setEliminada(boolean eliminada) {
+		this.eliminada = eliminada;
+	}
 	
 	
+	
+	
+	// Constructor vacio
+	public Propiedades() {
+	}
+	
+	// Constructor  
+	public Propiedades(Double precioMensual, String condiciones, String descripcion, LocalDate fechaPublicacion) {
+	    this.precioMensual = precioMensual;
+	    this.condiciones = condiciones;
+	    this.descripcion = descripcion;
+	    this.fechaPublicacion = fechaPublicacion;
+	    this.eliminada = false; // 
+	}
 	
 	
 }
