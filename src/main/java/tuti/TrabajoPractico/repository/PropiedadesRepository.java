@@ -2,7 +2,8 @@ package tuti.TrabajoPractico.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tuti.TrabajoPractico.model.Propiedades;
+
+import tuti.TrabajoPractico.entity.Publicacion;
 
 
 /**
@@ -15,7 +16,7 @@ import tuti.TrabajoPractico.model.Propiedades;
  * - .findById(id)   ➔ Busca una fila por su llave primaria.
  */
 @Repository // ➔ Le avisa a Spring que esta interfaz maneja el acceso a datos (MySQL)
-public interface PropiedadesRepository extends JpaRepository<Propiedades, Long> {
+public interface PropiedadesRepository extends JpaRepository<Publicacion, Long> {
     
 	// En el futuro, acá declararemos consultas específicas (ej: buscar por direccion y ciudad).
 }
