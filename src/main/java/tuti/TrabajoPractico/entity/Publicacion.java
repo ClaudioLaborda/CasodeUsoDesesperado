@@ -9,6 +9,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Enumerated;     
 import jakarta.persistence.EnumType;       
 import jakarta.persistence.OneToMany;      
+import jakarta.persistence.ManyToOne; // ¡Cambiado!       
+import jakarta.persistence.JoinColumn;      
 import jakarta.persistence.CascadeType;   
 import java.math.BigDecimal;               
 import java.time.LocalDate;
@@ -42,31 +44,32 @@ public class Publicacion {
 	private EstadoPublicacion estado;
 
 	
+	@ManyToOne
+	@JoinColumn(name = "propiedad_id", nullable = false)
+	private Propiedad propiedad;
 
-	
 	@OneToMany(mappedBy = "publicacion", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<HistorialEstadoPublicacion> historialEstados = new ArrayList<>();
-
 	
 	@OneToMany(mappedBy = "publicacion", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Visitas> visitas = new ArrayList<>();
 
 	
-
 	public Publicacion() {
 	}
 
+	
 	public Publicacion(BigDecimal precioMensual, String condiciones, String descripcion, 
-			LocalDate fechaPublicacion, boolean eliminada, EstadoPublicacion estado) {
+			LocalDate fechaPublicacion, boolean eliminada, EstadoPublicacion estado, Propiedad propiedad) {
 		this.precioMensual = precioMensual;
 		this.condiciones = condiciones;
 		this.descripcion = descripcion;
 		this.fechaPublicacion = fechaPublicacion;
 		this.eliminada = eliminada;
 		this.estado = estado;
+		this.propiedad = propiedad;
 	}
 
-	
 
 	public Long getId() {
 		return id;
@@ -124,7 +127,14 @@ public class Publicacion {
 		this.estado = estado;
 	}
 
-	
+	public Propiedad getPropiedad() {
+		return propiedad;
+	}
+
+	public void setPropiedad(Propiedad propiedad) {
+		this.propiedad = propiedad;
+	}
+
 	public List<HistorialEstadoPublicacion> getHistorialEstados() {
 		return historialEstados;
 	}
