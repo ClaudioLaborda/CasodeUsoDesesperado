@@ -1,4 +1,4 @@
-package tuti.TrabajoPractico.entity;
+package com.desi.inmobiliaria.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

@@ -1,4 +1,4 @@
-package tuti.TrabajoPractico.entity;
+package com.desi.inmobiliaria.entity;
 
 public enum EstadoDisponibilidad {
 	DISPONIBLE,
