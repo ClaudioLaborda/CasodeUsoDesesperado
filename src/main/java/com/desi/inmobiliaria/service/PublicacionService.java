@@ -25,6 +25,8 @@ public class PublicacionService {
         
         Propiedad propiedadCompleta = publicacionRepository.buscarPropiedadPorId(publicacion.getPropiedad().getId());
         
+       
+       
         if (propiedadCompleta == null) {
             throw new IllegalArgumentException("Debe seleccionar una propiedad registrada en el sistema.");
         }

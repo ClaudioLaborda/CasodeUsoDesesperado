@@ -35,6 +35,7 @@ public class PublicacionController {
         
         model.addAttribute("publicacion", nuevaPublicacion);
         model.addAttribute("propiedadesDisponibles", publicacionesRepository.buscarPropiedadesDisponibles(EstadoDisponibilidad.DISPONIBLE));
+       // model.addAttribute("propiedadesDisponibles", publicacionesRepository.buscarPropiedadesDisponibles(EstadoDisponibilidad.RESERVADA));
         model.addAttribute("listaPublicaciones", publicacionesRepository.findByEliminadaFalse());
         
         return "publicaciones";
